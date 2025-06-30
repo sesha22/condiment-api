@@ -17,12 +17,7 @@ app.get("/condiments/:id", (c) => {
   const condiment = condiments.find((condiment) => condiment.id == id);
 
   if (!condiment) {
-    return c.json(
-      {
-        message: "Condiment not found",
-      },
-      404
-    );
+    return c.json({ message: "Condiment not found" }, 404);
   }
 
   return c.json(condiment);

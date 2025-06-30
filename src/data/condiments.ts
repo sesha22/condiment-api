@@ -22,7 +22,7 @@ export const condiments: Condiment[] = [
   },
   {
     id: 4,
-    name: "sambal Pecel",
+    name: "Sambal Pecel",
     spicy: "super",
   },
   {
