@@ -1,6 +1,6 @@
 services:
   database:
-    image: postgres:debian
+    image: postgres:alpine
     ports:
       - "5432:5432"
     env_file:
