@@ -25,7 +25,7 @@ app.get("/condiments/:id", (c) => {
     );
   }
 
-  return c.json(condiments);
+  return c.json(condiment);
 });
 
 export default app;
