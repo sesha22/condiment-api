@@ -1,5 +1,7 @@
 import { Hono } from "hono";
-import { condiments } from "./data/condiments";
+import { dataCondiments } from "./data/condiments";
+
+let condiments = dataCondiments;
 
 const app = new Hono();
 
@@ -28,17 +30,16 @@ app.post("/condiments", async (c) => {
 
   const nextid = condiments[condiments.length - 1].id + 1 || 1;
 
-  const updatedCondiments = [
-    ...condiments,
-    {
-      id: nextid,
-      ...body,
-    },
-  ];
+  const newCondiment = {
+    id: nextid,
+    ...body,
+  };
 
-  console.log(updatedCondiments);
+  const updatedCondiments = [...condiments, newCondiment];
 
-  return c.json(body);
+  condiments = updatedCondiments;
+
+  return c.json(newCondiment);
 });
 
 export default app;

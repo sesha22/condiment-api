@@ -4,7 +4,7 @@ type Condiment = {
   spicy?: "normal" | "super";
 };
 
-export const condiments: Condiment[] = [
+export const dataCondiments: Condiment[] = [
   {
     id: 1,
     name: "Sambal Matah",
