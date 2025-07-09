@@ -1,6 +1,6 @@
 type Condiment = {
   id: number;
-  name?: string | null;
+  name?: string;
   spicy?: "normal" | "super";
 };
 
@@ -22,7 +22,7 @@ export const condiments: Condiment[] = [
   },
   {
     id: 4,
-    name: "sambal Pecel",
+    name: "Sambal Pecel",
     spicy: "super",
   },
   {

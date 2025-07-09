@@ -17,15 +17,28 @@ app.get("/condiments/:id", (c) => {
   const condiment = condiments.find((condiment) => condiment.id == id);
 
   if (!condiment) {
-    return c.json(
-      {
-        message: "Condiment not found",
-      },
-      404
-    );
+    return c.json({ message: "Condiment not found" }, 404);
   }
 
   return c.json(condiment);
+});
+
+app.post("/condiments", async (c) => {
+  const body = await c.req.json();
+
+  const nextid = condiments[condiments.length - 1].id + 1 || 1;
+
+  const updatedCondiments = [
+    ...condiments,
+    {
+      id: nextid,
+      ...body,
+    },
+  ];
+
+  console.log(updatedCondiments);
+
+  return c.json(body);
 });
 
 export default app;
