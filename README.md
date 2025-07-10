@@ -12,6 +12,11 @@
 | `/condiments/:id` | PATCH  | Patch condiment by id  |
 | `/condiments/:id` | PUT    | Update condiment by id |
 
+## ERD Diagram
+
+![ERD Diagram](/aset/db.png)
+[ERD Diagram] (https://dbdiagram.io/d/686fe2b5f413ba3508493aef)
+
 ## Getting Started
 
 To install dependencies:
