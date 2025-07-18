@@ -1,6 +1,4 @@
-{
-  "lockfileVersion": 1,
-  "workspaces": {
+
     "": {
       "name": "condiment-api",
       "dependencies": {

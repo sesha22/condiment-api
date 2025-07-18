@@ -1,45 +1,28 @@
 import { Hono } from "hono";
-import { dataCondiments } from "./data/condiments";
+import { PrismaClient } from "./generated/prisma";
 
-let condiments = dataCondiments;
+const prisma = new PrismaClient();
 
 const app = new Hono();
 
 app.get("/", (c) => {
-  return c.json({ message: "Hello" });
+  return c.json({ message: "Condiment API" });
 });
 
-app.get("/condiments", (c) => {
+app.get("/condiments", async (c) => {
+  const condiments = await prisma.condiment.findMany();
+
   return c.json(condiments);
 });
 
 app.get("/condiments/:id", (c) => {
   const id = Number(c.req.param("id"));
 
-  const condiment = condiments.find((condiment) => condiment.id == id);
-
-  if (!condiment) {
-    return c.json({ message: "Condiment not found" }, 404);
-  }
+  const condiment = {};
 
   return c.json(condiment);
 });
 
-app.post("/condiments", async (c) => {
-  const body = await c.req.json();
-
-  const nextid = condiments[condiments.length - 1].id + 1 || 1;
-
-  const newCondiment = {
-    id: nextid,
-    ...body,
-  };
-
-  const updatedCondiments = [...condiments, newCondiment];
-
-  condiments = updatedCondiments;
-
-  return c.json(newCondiment);
-});
+app.post("/condiments");
 
 export default app;
