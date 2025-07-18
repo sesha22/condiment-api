@@ -1,7 +1,7 @@
 type Condiment = {
   id: number;
   name?: string;
-  spicy?: "normal" | "super";
+  spicy?: "normal" | "super" | null;
 };
 
 export const dataCondiments: Condiment[] = [
@@ -28,9 +28,11 @@ export const dataCondiments: Condiment[] = [
   {
     id: 5,
     name: "Bawang Merah Goreng",
+    spicy: null,
   },
   {
     id: 6,
     name: "Bawang Putih Goreng",
+    spicy: null,
   },
 ];
