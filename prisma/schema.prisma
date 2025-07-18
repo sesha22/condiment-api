@@ -9,9 +9,8 @@ datasource db {
 }
 
 model Condiment {
-  id Int @id @default (autoincrement())
+  id Int @id @default(autoincrement())
 
-  name String 
+  name  String
   spicy String
-
 }
