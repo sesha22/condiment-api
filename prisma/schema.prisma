@@ -7,7 +7,7 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
+  
 model Condiment {
   id Int @id @default (autoincrement())
 
