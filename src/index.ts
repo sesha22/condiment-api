@@ -25,6 +25,25 @@ app.get("/condiments/:id", async (c) => {
   return c.json(condiment);
 });
 
-app.post("/condiments");
+// TODO: Continue to implement POST, DELETE, PATCH
+
+app.post("/condiments", async (c) => {
+  const body = await c.req.json();
+
+  const condiment = await prisma.condiment.create({
+    data: {
+      name: body.name,
+      spicy: body.spicy,
+    },
+  });
+
+  return c.json(condiment);
+});
+
+app.delete("/condiments/:id");
+
+app.patch("/condiments/:id");
+
+// TODO: Deploy to Render / Railway with new bank card
 
 export default app;
