@@ -15,10 +15,12 @@ app.get("/condiments", async (c) => {
   return c.json(condiments);
 });
 
-app.get("/condiments/:id", (c) => {
+app.get("/condiments/:id", async (c) => {
   const id = Number(c.req.param("id"));
 
-  const condiment = {};
+  const condiment = await prisma.condiment.findUnique({
+    where: { id },
+  });
 
   return c.json(condiment);
 });
